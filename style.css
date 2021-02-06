@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+}
+#content-container { margin-left: 10%;
+	width: 80%;
+	height: 930px;
+	background:rgba(236.94,210.38,98.72,1); 
+}
+.cooking_master {
+    margin-top: 50px;
+    margin-left: 135.84px;
+    width: 180.15px;
+    height: 23.74px;
+    margin-right: 600px;
+}
+.menu {
+    padding-left: 40px;
+	overflow: hidden;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+    font-weight: 600;
+	text-decoration: none;
+	color:#383838;
+}
+.search{
+    width: 35%;
+    display: flex;
+    margin-left: 35%;
+    margin-top: 3%;
+}
+.btn{
+    background-color: rgba(58.92,44.53,99.88,1);
+    color: white;
+    padding:  0px 20px 0px 20px;
+}
+.btn:hover{
+    color: white;
+    background-color: rgb(99, 76, 167);
+}
+.food-section{
+    height: 600px;
+    width: 80%;
+    margin-top: 3%;
+    margin-left: 10%;
+    background-color: white;
+}
