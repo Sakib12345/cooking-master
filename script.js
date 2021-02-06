@@ -36,5 +36,29 @@ const displayDetailsTogglePopUp = (mealId) =>{
     document.getElementById("popup-1").classList.toggle("active");
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => displayMealDetails(data.meals))
+}
+
+const displayMealDetails = (meals) => {
+    const allMeals = document.getElementById('mealDetailInfo')
+    allMeals.innerHTML = ''
+    meals.forEach(meal => {
+        const mealDiv = document.createElement('div');
+        mealDiv.className = 'mealDetail'
+        const mealName = meal.strMeal
+        const mealImage = meal.strMealThumb
+        const mealIngredients  = [ meal.strIngredient1, meal.strIngredient2, meal.strIngredient3, meal.strIngredient4,meal.strIngredient5 ];
+        const mealIngredientObj = mealIngredients.map((mealIngredient) => {
+            return mealIngredient;
+        })
+        const mealInfo = `
+        <h1>Meal Details</h1>
+        <img class = "meal-detail-img" src="${mealImage}">
+        <h2 class="meal-name">${mealName}</h2>
+        <h4>Ingredients</h4>
+        <p>${mealIngredientObj}</p>
+        `
+        mealDiv.innerHTML = mealInfo
+        allMeals.appendChild(mealDiv)
+    });
 }

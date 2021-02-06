@@ -62,7 +62,7 @@
     width: 250px;
     border-radius: 10px 10px 0px 0px;
 }
-.meal h4{
+.meal h4,h1{
     text-align: center;
     color: rgb(79, 79, 80);
     margin: 3%;
@@ -70,7 +70,13 @@
 	font-size: 20px;
     font-weight: 600;
 }
+#mealDetailInfo{
+    margin: 10%;
+}
+.meal-detail-img{
+    width: 350px;
 
+}
 /* popup */
 .popup .overlay {
     position:fixed;
@@ -90,7 +96,7 @@
     transform:translate(-50%,-50%) scale(0);
     background:#fff;
     width:500px;
-    height: 500px;
+    height: 800px;
     z-index:2;
     padding:20px;
     box-sizing:border-box;
