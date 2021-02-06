@@ -20,14 +20,27 @@
             <a href="" class="menu">Blog</a>
         </header>
         <section class="search">
-            <input class="form-control form-control-lg" type="text" placeholder="Search" >
-            <button type="button" class="btn btn-default">Search</button>
+            <input class="form-control form-control-lg" type="text" id="meal-name" placeholder="Search" >
+            <button type="button" id="search-button" class="btn btn-default">Search</button>
         </section>
         <section class="food-section">
             <div id="allFood">
 
             </div>
+            <div>
+                <div class="popup" id="popup-1">
+                    <div class="overlay">
+                    <div class="content">
+                      <div class="close-btn" onclick="displayDetailsTogglePopUp()">&times;</div>
+                      <div id="foodDetail">
+        
+                      </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
         </section>
+        
     </div>
     <script src="script.js"></script>
 </body>
