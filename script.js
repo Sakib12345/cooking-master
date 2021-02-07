@@ -2,7 +2,8 @@ document.getElementById('search-button').addEventListener(
     'click', () => {
         const mealName = document.getElementById('meal-name').value
         if(mealName === ''){
-            errorTogglePopUp()
+            document.getElementById('allFood').innerHTML = '';
+            errorTogglePopUp();
         }
         else{fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`)
         .then(res => res.json())
