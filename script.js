@@ -4,7 +4,7 @@ document.getElementById('search-button').addEventListener(
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`)
         .then(res => res.json())
         .then(data => displayMeals(data.meals))
-        .catch(error => alert('No meals found'))
+        .catch(error => errorTogglePopUp())
     }
 )
 
@@ -14,16 +14,17 @@ const displayMeals = (meals) => {
     meals.forEach(meal => {
         
         const mealDiv = document.createElement('div');
-        mealDiv.className = 'meal'
-        const mealName = meal.strMeal
-        const mealImage = meal.strMealThumb
+        mealDiv.className = 'meal';
+        const mealName = meal.strMeal;
+        const mealImage = meal.strMealThumb;
         const mealInfo = `
         <img class = "meal-img" src="${mealImage}">
         <h4 class="meal-name">${mealName}</h4>
-        `
-        mealDiv.innerHTML = mealInfo
-        allMeals.appendChild(mealDiv)
-        const mealId = meal.idMeal
+        `;
+        mealDiv.innerHTML = mealInfo;
+        allMeals.appendChild(mealDiv);
+
+        const mealId = meal.idMeal;
         mealDiv.addEventListener(
             'click', () => displayDetailsTogglePopUp(mealId)
         )
@@ -38,21 +39,20 @@ const displayDetailsTogglePopUp = (mealId) =>{
 }
 
 const displayMealDetails = (meals) => {
-    const allMeals = document.getElementById('mealDetailInfo')
-    allMeals.innerHTML = ''
+    const allMeals = document.getElementById('mealDetailInfo');
+    allMeals.innerHTML = '';
     meals.forEach(meal => {
         const mealDiv = document.createElement('div');
-        mealDiv.className = 'mealDetail'
-        const mealName = meal.strMeal
-        const mealImage = meal.strMealThumb
-        
+        mealDiv.className = 'mealDetail';
+        const mealName = meal.strMeal;
+        const mealImage = meal.strMealThumb;
+        document.getElementById('unOrderList').innerHTML = ''
             let count = 1;
-            let g = '';
+            let mealList = '';
             for(const key of Object.keys(meal)){
             if(key === 'strIngredient' + count){
-                g = (`${meal[key]}`)
-                document.getElementById('unOrderList').innerHTML += `<li>${g}</li>`
-                console.log(g)
+                mealList = (`${meal[key]}`);
+                document.getElementById('unOrderList').innerHTML += `<li class="list-item">${mealList}</li>`;
                 count++;
                 }    
             }
@@ -67,4 +67,12 @@ const displayMealDetails = (meals) => {
         mealDiv.innerHTML = mealInfo;
         allMeals.appendChild(mealDiv);
     });
+}
+const errorTogglePopUp = () => {
+    document.getElementById("popup-2").classList.toggle("active");
+    const errorInfo = `
+        <img class="sorry-img" src="images/sorry.png">
+        <h1 class="error-message">Sorry, No Meals Found</h1>
+        `;
+    document.getElementById('errorMessage').innerHTML = errorInfo;    
 }

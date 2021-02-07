@@ -22,6 +22,18 @@
         <section class="search">
             <input class="form-control form-control-lg" type="text" id="meal-name" placeholder="Search" >
             <button type="button" id="search-button" class="btn btn-default">Search</button>
+
+            <div class="error-popup" id="popup-2">
+                <div class="error-overlay">
+                <div class="error-content">
+                <div class="error-close-btn" onclick="errorTogglePopUp()">&times;</div>
+                <div id="errorMessage">
+                    
+                </div>
+                </div>
+                </div>
+            </div>
+
         </section>
         <section class="food-section">
             <div id="allFood">
@@ -35,7 +47,7 @@
                     <div id="mealDetailInfo">
                         
                     </div>
-                    <div>
+                    <div class="list-div">
                         <ul id="unOrderList">
                             
                         </ul>
