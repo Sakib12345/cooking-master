@@ -8,6 +8,7 @@ document.getElementById('search-button').addEventListener(
     }
 )
 
+//function for display meals according to search...
 const displayMeals = (meals) => {
     const allMeals = document.getElementById('allFood')
     allMeals.innerHTML = ''
@@ -31,6 +32,7 @@ const displayMeals = (meals) => {
     });
 }
 
+//pop up function
 const displayDetailsTogglePopUp = (mealId) =>{
     document.getElementById("popup-1").classList.toggle("active");
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
@@ -38,6 +40,7 @@ const displayDetailsTogglePopUp = (mealId) =>{
     .then(data => displayMealDetails(data.meals))
 }
 
+//function for display meal's details
 const displayMealDetails = (meals) => {
     const allMeals = document.getElementById('mealDetailInfo');
     allMeals.innerHTML = '';
@@ -68,6 +71,8 @@ const displayMealDetails = (meals) => {
         allMeals.appendChild(mealDiv);
     });
 }
+
+//function for pop up when user's input can not match with the meal's database.
 const errorTogglePopUp = () => {
     document.getElementById("popup-2").classList.toggle("active");
     const errorInfo = `
