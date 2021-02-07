@@ -28,8 +28,6 @@ const displayMeals = (meals) => {
             'click', () => displayDetailsTogglePopUp(mealId)
         )
     });
-    // element.map((meal) => console.log(meal.strMeal))
-    
 }
 
 const displayDetailsTogglePopUp = (mealId) =>{
@@ -47,38 +45,26 @@ const displayMealDetails = (meals) => {
         mealDiv.className = 'mealDetail'
         const mealName = meal.strMeal
         const mealImage = meal.strMealThumb
-        // const mealIngredients  = [ meal.strIngredient1, meal.strIngredient2, meal.strIngredient3, meal.strIngredient4,meal.strIngredient5 ];
-        // const mealIngredientObj = mealIngredients.map((mealIngredient) => {
-        //     return mealIngredient;
-        // })
         
-        const ingredients = () => {
             let count = 1;
             let g = '';
             for(const key of Object.keys(meal)){
             if(key === 'strIngredient' + count){
                 g = (`${meal[key]}`)
+                document.getElementById('unOrderList').innerHTML += `<li>${g}</li>`
                 console.log(g)
-                count++; 
-                return g;
+                count++;
                 }    
             }
-        }
+        
         const mealInfo = `
         <h1>Meal Details</h1>
         <img class = "meal-detail-img" src="${mealImage}">
         <h2 class="meal-name">${mealName}</h2>
         <h4>Ingredients</h4>
-        
         `;
-        const li = document.createElement('li');
-        const ul = document.getElementById('unOrderList');
-
-        li.innerHTML = ingredients();
-        ul.appendChild(li);
-
+        
         mealDiv.innerHTML = mealInfo;
         allMeals.appendChild(mealDiv);
     });
 }
-{/* <p>${mealIngredientObj}</p> */}
