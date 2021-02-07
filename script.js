@@ -58,7 +58,7 @@ const displayMealDetails = (meals) => {
             }
         
         const mealInfo = `
-        <h1>Meal Details</h1>
+        <h1 class="meal-details">Meal Details</h1>
         <img class = "meal-detail-img" src="${mealImage}">
         <h2 class="meal-name">${mealName}</h2>
         <h4>Ingredients</h4>
