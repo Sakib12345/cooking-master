@@ -1,10 +1,13 @@
 document.getElementById('search-button').addEventListener(
     'click', () => {
         const mealName = document.getElementById('meal-name').value
-        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`)
+        if(mealName === ''){
+            errorTogglePopUp()
+        }
+        else{fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`)
         .then(res => res.json())
         .then(data => displayMeals(data.meals))
-        .catch(error => errorTogglePopUp())
+        .catch(error => errorTogglePopUp())}
     }
 )
 
