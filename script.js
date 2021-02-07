@@ -1,7 +1,7 @@
 document.getElementById('search-button').addEventListener(
     'click', () => {
         const mealName = document.getElementById('meal-name').value
-        if(mealName === ''){
+        if(mealName === '' || mealName === ' ' ){
             document.getElementById('allFood').innerHTML = '';
             errorTogglePopUp();
         }
